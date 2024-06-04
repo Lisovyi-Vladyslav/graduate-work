@@ -5,8 +5,9 @@ export const fetchProduct  = createAsyncThunk(
   "product/fetchProduct",
   async (query, {rejectWithValue}) => {
     try {
+     
         const {data} = await publicApi.get(`/product?${query}`);
-
+        
 
       return data.product;
     } catch (e) {
@@ -23,7 +24,7 @@ export const fetchProductbyId  = createAsyncThunk(
     try {
         const {data} = await publicApi.post("/product/byId", parameters);
 
-        console.log(data)
+        // console.log(data.product)
 
       return data.product;
     } catch (e) {

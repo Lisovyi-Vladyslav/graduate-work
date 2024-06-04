@@ -1,4 +1,5 @@
 import { Conteiner } from 'shared/UI/Conteiner/Conteiner';
+import { Text } from 'shared/UI/Text/Text';
 import styled, {css} from 'styled-components'
 
 
@@ -31,7 +32,7 @@ margin: 0;
   
 `;
 
-export const StyledItem = styled(Conteiner)`
+export const StyledItem = styled.li`
 
 display: flex;
 flex-direction: row;
@@ -60,9 +61,16 @@ flex-direction: row ;
 justify-content: center ;
 align-items: center; 
 
+
 > :last-child {
   margin-left: 8px;
 }
+`;
+
+export const StyledText = styled(Text)`
+white-space: nowrap;
+  overflow: hidden; /* Обрізати текст, що не поміщається */
+  text-overflow: ellipsis;
 `;
 
 

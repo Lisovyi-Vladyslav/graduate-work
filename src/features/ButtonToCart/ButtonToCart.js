@@ -13,10 +13,12 @@ import { usersCartAddAction, usersCartDeleteAction } from 'app/redux/auth/auth.s
 export const ButtonToCart = (props) => {
 
  
-  const favorit = useSelector(selectAuthCart);
+  const cart = useSelector(selectAuthCart);
   
+  const idProducts = cart.map(id => Object.keys(id)[0]);
 
-  const hasFavorite  = favorit.some((element) => element === props._id);
+  const hasFavorite  = idProducts.some((element) => element === props._id);
+  console.log(hasFavorite)
 
   const [active, setActive] = useState(hasFavorite.toString());
     

@@ -15,10 +15,11 @@ import CustomSlides from "widgets/HeroSlider/HeroSlider";
 import { Conteiner } from "shared/UI/Conteiner/Conteiner";
 import { Img } from "shared/UI/Img/Img";
 import { getProduct } from "app/redux/product/product.selectors";
-import { ProductCard } from "entities/ProductCard/ProductCard";
+import { ProductCard } from "widgets/ProductCard/ProductCard";
 import { ButtonToCart } from "features/ButtonToCart/ButtonToCart";
 import { Buttons } from "shared/UI/Button/Button.styled";
 import ProductCarousel from "widgets/ProductCarousel/ProductCarousel";
+import { ConteinerHome } from "./home.styled";
 
 
 
@@ -59,10 +60,12 @@ const handleProduct = idx => {
 
     return (
     <>
-    <Conteiner>
+    <ConteinerHome>
     {/* <Buttons onClick={handleProduct}>sdfghjkl</Buttons> */}
-    <ProductCarousel></ProductCarousel>
+
     <CustomSlides></CustomSlides>
+    <ProductCarousel title={'Hot prices'}></ProductCarousel>
+    <ProductCarousel title={'Brand new models'}></ProductCarousel>
         {/* <Logo></Logo> */}
         {/* <Carousel afterChange={onChange}>
     <div><h3>1</h3></div>
@@ -78,7 +81,7 @@ const handleProduct = idx => {
 
 
 
-    </Conteiner>
+    </ConteinerHome>
        
     </>
     );

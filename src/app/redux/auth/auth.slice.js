@@ -24,14 +24,19 @@ const authSlice = createSlice({
       const isDuplicate = state.user.cart.some((element) => element === payload);
 
       if (!isDuplicate) {
-        state.user.cart.push(payload);
+        state.user.cart.push({[payload] : 1});
       }},
     usersCartDeleteAction: (state, { payload }) => {
-  const indexToRemove = state.user.cart.indexOf(payload);
+
+ 
+  const indexToRemove = state.user.cart.findIndex(item => {
+    return Object.keys(item)[0] === payload; // Припускаємо, що payload - це ID продукту
+  });
 
   if (indexToRemove !== -1) {
     state.user.cart.splice(indexToRemove, 1);
-  }},
+  }
+},
   usersFavoriteAddAction: (state, { payload }) => {
     const isDuplicate = state.user.favorites.some((element) => element === payload);
 

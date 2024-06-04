@@ -24,6 +24,7 @@ export const Header = ({ children, ...props }) => {
         password: "585898vl"
       }),
         );
+        console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaa')
   }, []);
 
 
@@ -41,7 +42,7 @@ export const Header = ({ children, ...props }) => {
     <ButtonHeader to="/user/favour" icon='icon-Favour'/>
     </li>
     <li>
-    <ButtonHeader to="/user/basket" icon='icon-Shopp-bag'/>
+    <ButtonHeader to="/user/cart" icon='icon-Shopp-bag'/>
     </li>
 </StyledListButton>
 

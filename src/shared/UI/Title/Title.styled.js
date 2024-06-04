@@ -10,6 +10,7 @@ ${props => props.h1 && css`
   letter-spacing: ${props => props.spacing || props.theme.font.bold.letterSpacing.large};
   color: ${props => props.colors || props.theme.colors.primary};
   text-align: left;
+  
       
   `};
 

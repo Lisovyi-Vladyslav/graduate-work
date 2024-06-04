@@ -5,37 +5,57 @@ import { useSelector } from 'react-redux';
 import { Img } from 'shared/UI/Img/Img';
 import { Title } from 'shared/UI/Title/Title';
 import { Text } from 'shared/UI/Text/Text';
-import { ButtonConteiner, FirstConteiner, PriseConteiner, StyledConteiner, StyledItem } from './ProductCard.styled';
+import { ButtonConteiner, FirstConteiner, StyledConteiner, StyledItem, StyledText } from './ProductCard.styled';
 import { Conteiner } from 'shared/UI/Conteiner/Conteiner';
 import { ButtonToCart } from 'features/ButtonToCart/ButtonToCart';
 import { ButtonToFavorite } from 'features/ButtonToFavorite/ButtonToFavorite';
+import { Link } from 'shared/UI/Link/Link';
+import { TechnicalList } from 'entities/TechnicalList/TechnicalList';
+import { PriseConteiner } from 'entities/PriseConteiner/PriseConteiner';
 
 
 export const ProductCard = ({details}) => {
-    // console.log('------------------------')
-    // console.log(details)
-    // console.log('------------------------')
-
     const {screen, capacity, ram, name, images, priceRegular, priceDiscount, _id} = details;
 
-    const product = useSelector(getProduct);
+    const texhList = {
+        screen,
+        capacity,
+        ram
+    }
+    
 
     return (
-    <StyledConteiner>
+<StyledConteiner>
+
+    <Link to={`/phones/${_id}`}>
         <FirstConteiner>
-
             <Img alt={name} src={images[0]} Card={true}></Img>
-            <Text bodyText={true}>{name}</Text>
-
-                <PriseConteiner>
-                    <Title h2={true}>${priceRegular}</Title>
-                    <Title h2={true}>${priceDiscount}</Title>
-                </PriseConteiner>
-            
+            <StyledText bodyText={true}>{name}</StyledText>
+            <PriseConteiner priceRegular={priceRegular} priceDiscount={priceDiscount}></PriseConteiner>
         </FirstConteiner>
+    </Link>
 
-        <Conteiner>
-<ul>
+    <Conteiner>
+        <TechnicalList texhList={texhList}></TechnicalList>
+    </Conteiner>
+
+    <ButtonConteiner>       
+        <ButtonToCart _id={_id}></ButtonToCart>
+        <ButtonToFavorite _id={_id} icon='icon-Favour'></ButtonToFavorite>
+    </ButtonConteiner>
+
+</StyledConteiner>
+    
+    );
+  };
+
+
+
+
+
+
+
+  {/* <ul>
     <StyledItem>
         <Text smallText={true} >Screen</Text>
         <Text smallText={true} colors='#89939A' >{screen}</Text>
@@ -48,12 +68,4 @@ export const ProductCard = ({details}) => {
         <Text smallText={true} >RAM</Text>
         <Text smallText={true} colors='#89939A' >{ram}</Text>
     </StyledItem>
-</ul>
-        </Conteiner>
-  <ButtonConteiner>       
-    <ButtonToCart _id={_id}></ButtonToCart>
-    <ButtonToFavorite _id={_id} icon='icon-Favour'></ButtonToFavorite>
-  </ButtonConteiner>
-    </StyledConteiner>
-    );
-  };
+</ul> */}

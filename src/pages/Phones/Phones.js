@@ -15,11 +15,11 @@ import CustomSlides from "widgets/HeroSlider/HeroSlider";
 import { Conteiner } from "shared/UI/Conteiner/Conteiner";
 import { Img } from "shared/UI/Img/Img";
 import { getProduct } from "app/redux/product/product.selectors";
-import { ProductCard } from "entities/ProductCard/ProductCard";
+import { ProductCard } from "widgets/ProductCard/ProductCard";
 import { ButtonToCart } from "features/ButtonToCart/ButtonToCart";
 import { Buttons } from "shared/UI/Button/Button.styled";
 import ProductCarousel from "widgets/ProductCarousel/ProductCarousel";
-import { Text } from "shared/UI/Text/Text";
+import { PhonesСatalog } from "widgets/PhonesСatalog/PhonesСatalog";
 
 import PaginationPhones from "widgets/PaginationPhones/PaginationPhones";
 
@@ -37,6 +37,7 @@ export default function Phones() {
     return (
     <>
     <Conteiner>
+    <PhonesСatalog />
     <PaginationPhones></PaginationPhones>
     </Conteiner>
        

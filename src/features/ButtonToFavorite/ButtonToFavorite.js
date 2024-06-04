@@ -15,11 +15,11 @@ export const ButtonToFavorite = (props) => {
 
  
   const favorit = useSelector(selectAuthFavorit);
-  console.log(favorit)
-  console.log(props._id)
+  // console.log(favorit)
+  // console.log(props._id)
 
   const hasFavorite  = favorit.some((element) => element === props._id);
-  console.log(hasFavorite.toString())
+  // console.log(hasFavorite.toString())
 
   const [active, setActive] = useState(hasFavorite.toString());
   

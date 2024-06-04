@@ -19,7 +19,7 @@ border: 1px solid ${props => props.colors || props.theme.colors.secondary};
 `;
 
 export const HeroConteiner = styled(StyledConteiner)`
-
+ margin-bottom: 80px;
 
 ${'' /* display: flex;
  
