@@ -1,7 +1,5 @@
 import { Buttons } from 'shared/UI/Button/Button.styled';
 import styled, {css} from 'styled-components'
-import sprite from '../../app/styles/icon.svg';
-import { StyledConteiner } from 'shared/UI/Conteiner/Conteiner.styled';
 import { Conteiner } from 'shared/UI/Conteiner/Conteiner';
 import { Title } from 'shared/UI/Title/Title';
 

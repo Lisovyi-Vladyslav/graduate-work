@@ -7,7 +7,6 @@ import { HeroButton, HeroConteiner, StyledImage } from "./HeroSlider.styled";
 import { Icon } from "shared/UI/Icon/Icon";
 
 import {bannerImage} from '../../app/image/decor/bannerImage'
-import { DotsList } from "entities/DotsList/DotsList";
 
 
 function SampleNextArrow(props) {

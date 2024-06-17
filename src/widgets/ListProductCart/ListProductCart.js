@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProductDetails } from 'app/redux/product/product.selectors';
 import { Row, Col, Card, Flex } from 'antd';
 import { Conteiner } from 'shared/UI/Conteiner/Conteiner';
-import { selectAuthCart, selectAuthFavorit } from 'app/redux/auth/auth.selector';
 import { fetchProductbyId } from 'app/redux/product/product.thunk';
 import { Img } from 'shared/UI/Img/Img';
 import { Text } from 'shared/UI/Text/Text';

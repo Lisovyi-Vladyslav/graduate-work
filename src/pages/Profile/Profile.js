@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { selectAuthUserName, selectAuthUserRole } from "app/redux/auth/auth.selector";
 import { Title } from "shared/UI/Title/Title";
 import { StyledConteiner } from "./Profile.styled";
+import { getProduct } from "app/redux/product/product.selectors";
 
 
 
