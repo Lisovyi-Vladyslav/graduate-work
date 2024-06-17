@@ -3,7 +3,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import { authInitState } from './auth.init-state';
-import { authRegisterThunk, authLoginThunk, authGetInfoThunk, authLogOutThunk } from './auth.thunk';
+import { authRegisterThunk, authLoginThunk, authGetInfoThunk, authLogOutThunk, authUpdateInfoThunk } from './auth.thunk';
 import { handlePending, handleRejected } from 'shared/API/handleRequest/handleRequest';
 
 const handleFulfilled = (state, action) => {
@@ -37,6 +37,17 @@ const authSlice = createSlice({
     state.user.cart.splice(indexToRemove, 1);
   }
 },
+usersCartChangeQuantityAction: (state, { payload }) => {
+  
+
+  state.user.cart.forEach(obj => {
+    if (obj[payload[0]] !== undefined) {
+      obj[payload[0]] = payload[1];
+    }
+  });
+
+},
+
   usersFavoriteAddAction: (state, { payload }) => {
     const isDuplicate = state.user.favorites.some((element) => element === payload);
 
@@ -49,6 +60,7 @@ const indexToRemove = state.user.favorites.indexOf(payload);
 if (indexToRemove !== -1) {
   state.user.favorites.splice(indexToRemove, 1);
 }},
+
 
   },
   extraReducers: builder => {
@@ -83,10 +95,20 @@ if (indexToRemove !== -1) {
       state.user = null;
     })
     .addCase(authLogOutThunk.rejected, handleRejected)
+    .addCase(authUpdateInfoThunk.pending, handlePending)
+    .addCase(authUpdateInfoThunk.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.error = null;
+      state.user = action.payload;
+      // state.product.list = action.payload;
+      // state.product.push(action.payload);
+      console.log(action.payload)
+    })
+    .addCase(authUpdateInfoThunk.rejected, handleRejected)
   },
 });
 
-export const { usersCartAddAction, usersCartDeleteAction, usersFavoriteAddAction, usersFavoriteDeleteAction } = authSlice.actions;
+export const { usersCartAddAction, usersCartDeleteAction, usersFavoriteAddAction, usersFavoriteDeleteAction, usersCartChangeQuantityAction } = authSlice.actions;
 
 const persistConfig = {
   key: 'graduate-work',

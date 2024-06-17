@@ -2,70 +2,41 @@ import { Text } from 'shared/UI/Text/Text';
 import { StyledButton, StyledConteiner, StyledText } from './CounterForCart.styled';
 import { Icon } from 'shared/UI/Icon/Icon';
 import { Conteiner } from 'shared/UI/Conteiner/Conteiner';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAuthCart } from 'app/redux/auth/auth.selector';
+import { counterForCartMinus } from 'app/redux/product/product.slice';
+import { useEffect, useState } from 'react';
+import { usersCartChangeQuantityAction } from 'app/redux/auth/auth.slice';
 
 
 export const CounterForCart = (props) => {
 
- 
-//   const favorit = useSelector(selectAuthCart);
+    const [count, setCount] = useState(1);
+
+    const dispatch = useDispatch();
+
+    const cart = useSelector(selectAuthCart);
+
+        useEffect(() => {
+            dispatch(
+                usersCartChangeQuantityAction([props._id , count]),
+                );
+
+          }, [count]);
   
 
-//   const hasFavorite  = favorit.some((element) => element === props._id);
-
-//   const [active, setActive] = useState(hasFavorite.toString());
-    
-//     const dispatch = useDispatch();
-
-//     const {colors} = useTheme();
-
-//     const handleClick = () => {
-    
-//       if (active === 'false') {
-//         setActive(true);
-//         return
-//       }
-
-//         setActive(!active);
-//       };
-
-//       useEffect(() => {
-// if (active.constructor === String) {
-//   return
-// }
-
-
-// if (active === true) {
-//   dispatch(
-//     usersCartAddAction(props._id),
-//     );
-// }
-
-// if (active === false) {
-//   dispatch(
-//     usersCartDeleteAction(props._id),
-//     );
-// }
-
-        
-//       }, [active]);
-
     return (
-    // <StyledButtonToCart  {...props} onClick={handleClick} active={active.toString()}>
-    //     <Text buttons={true} colors={colors.white}>
-    //     Add to cart
-    //     </Text>
-    // </StyledButtonToCart>
+
     <>
     <StyledConteiner>
 
-        <StyledButton>
+        <StyledButton  onClick={() => setCount(count - 1)}>
             <Icon icon='icon-Minus'></Icon>
         </StyledButton>
     
-        <StyledText>1</StyledText>
+        <StyledText>{count}</StyledText>
     
-        <StyledButton>
+        <StyledButton  onClick={() => setCount(count + 1)}>
             <Icon icon='icon-Plus'></Icon>
         </StyledButton>
 

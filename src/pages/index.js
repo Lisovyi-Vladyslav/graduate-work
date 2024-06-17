@@ -6,6 +6,7 @@ import Phones from "./Phones/Phones";
 import PhonesDetails from "./PhonesDetails/PhonesDetails";
 import Favour from "./Favour/Favour";
 import ShoppingCart from "./ShoppingCart/ShoppingCart";
+import Profile from "./Profile/Profile";
 
 const Home = lazy(() => import("./home/home"));
 // const TasksDetailsPage = lazy(() => import("./task-details"));
@@ -20,8 +21,10 @@ export const Routing = () => {
         <Route index element={<Home />} />
         <Route path="phones" element={<Phones />} />
         <Route path="phones/:productId" element={<PhonesDetails />} />
+        <Route path="profile" element={<Profile />} />
         <Route path="user/favour" element={<Favour />} />
         <Route path="user/cart" element={<ShoppingCart />} />
+        
       </Route>
 
       

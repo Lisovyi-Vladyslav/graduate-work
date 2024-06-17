@@ -8,6 +8,7 @@ import { Row, Col, Card } from 'antd';
 import { Conteiner } from 'shared/UI/Conteiner/Conteiner';
 import { selectAuthFavorit } from 'app/redux/auth/auth.selector';
 import { fetchProductbyId } from 'app/redux/product/product.thunk';
+import { Title } from 'shared/UI/Title/Title';
 
 
 const Favour = () => {
@@ -23,7 +24,9 @@ const Favour = () => {
 
   return (
     <>
+    
     <Conteiner>
+    <Title h1>Favourites</Title>
         <Row gutter={[16, 40]} justify="center">
             {productDetails && productDetails.map((details) => (
                 <Col key={details._id} xs={24} sm={12} md={8} lg={6} xl={6}>

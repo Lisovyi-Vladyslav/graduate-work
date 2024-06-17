@@ -16,6 +16,7 @@ export const authLoginThunk = createAsyncThunk('login', async ({email, password}
 export const authRegisterThunk = createAsyncThunk('register', async (values) => {
 
   const { data } = await publicApi.post('/auth/register', values);
+  console.log(data)
 
   return data.data;
 });
@@ -32,5 +33,16 @@ export const authLogOutThunk = createAsyncThunk('logOut', async (token) => {
   await privateApi.post('/user/logout');
 
   clearAuthHeader();
+  
+});
+
+export const authUpdateInfoThunk = createAsyncThunk('info', async (values) => {
+
+  // setAuthHeader(token)
+ 
+  const { data } = await publicApi.patch('/user/info', values);
+  console.log(data)
+
+  return data.data;
   
 });

@@ -9,7 +9,7 @@ export const Navigation = ({ children, ...props }) => {
           <Logo/>
           <Link to="/" end>Home</Link>
           <Link to="/phones">Phones</Link>
-          <Link to="/profile">Profile</Link>
+          {/* <Link to="/profile">Profile</Link> */}
          {children}
     </StyledNavigation>
     );

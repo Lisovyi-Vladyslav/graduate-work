@@ -18,8 +18,7 @@ export const ButtonToCart = (props) => {
   const idProducts = cart.map(id => Object.keys(id)[0]);
 
   const hasFavorite  = idProducts.some((element) => element === props._id);
-  console.log(hasFavorite)
-
+  
   const [active, setActive] = useState(hasFavorite.toString());
     
     const dispatch = useDispatch();
@@ -27,7 +26,6 @@ export const ButtonToCart = (props) => {
     const {colors} = useTheme();
 
     const handleClick = () => {
-    
       if (active === 'false') {
         setActive(true);
         return
@@ -36,26 +34,25 @@ export const ButtonToCart = (props) => {
         setActive(!active);
       };
 
-      useEffect(() => {
-if (active.constructor === String) {
-  return
-}
+useEffect(() => {
 
+    if (active.constructor === String) {
+      return
+    }
 
-if (active === true) {
-  dispatch(
-    usersCartAddAction(props._id),
-    );
-}
+    if (active === true) {
+      
+      dispatch(
+        usersCartAddAction(props._id),
+        );
+    }
 
-if (active === false) {
-  dispatch(
-    usersCartDeleteAction(props._id),
-    );
-}
-
-        
-      }, [active]);
+    if (active === false) {
+      dispatch(
+        usersCartDeleteAction(props._id),
+        );
+    }      
+}, [active]);
 
     return (
     <StyledButtonToCart  {...props} onClick={handleClick} active={active.toString()}>

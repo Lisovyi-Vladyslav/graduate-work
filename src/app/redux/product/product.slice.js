@@ -10,6 +10,16 @@ import { handlePending, handleRejected } from "shared/API/handleRequest/handleRe
 const productSlice = createSlice({
   name: "product",
   initialState: productInitState,
+  reducers: {
+    counterForCartMinus: (state, { payload }) => {
+      console.log('Minus')
+      console.log(state)
+    },
+    counterForCartPlus: (state, { payload }) => {
+      console.log('Plus')
+    },
+    },
+
   extraReducers: builder => {
     builder
     .addCase(fetchProduct.pending, handlePending)
@@ -52,6 +62,8 @@ const productSlice = createSlice({
     .addCase(fetchProductbyId.rejected, handleRejected);
   }
 });
+
+export const { counterForCartPlus, counterForCartMinus} = productSlice.actions;
 
 const persistConfig = {
   key: 'graduate-work',

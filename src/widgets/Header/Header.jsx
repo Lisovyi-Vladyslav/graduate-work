@@ -39,10 +39,13 @@ export const Header = ({ children, ...props }) => {
 
 <StyledListButton>
     <li>
-    <ButtonHeader to="/user/favour" icon='icon-Favour'/>
+      <ButtonHeader to="/profile" icon='icon-user'/>
     </li>
     <li>
-    <ButtonHeader to="/user/cart" icon='icon-Shopp-bag'/>
+      <ButtonHeader to="/user/favour" icon='icon-Favour'/>
+    </li>
+    <li>
+      <ButtonHeader to="/user/cart" icon='icon-Shopp-bag'/>
     </li>
 </StyledListButton>
 

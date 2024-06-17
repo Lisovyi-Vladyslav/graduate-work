@@ -11,7 +11,6 @@ export const ButtonDeleteProductCart = (props) => {
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        console.log(props._id)
         dispatch(
             usersCartDeleteAction(props._id),
             );
